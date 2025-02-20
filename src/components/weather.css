@@ -1,0 +1,368 @@
+/* Google Fonts import */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap');
+
+/* Temel Animasyonlar */
+@keyframes floatAnimation {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+@keyframes glowPulse {
+
+    0%,
+    100% {
+        box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+    }
+
+    50% {
+        box-shadow: 0 0 30px rgba(255, 255, 255, 0.4);
+    }
+}
+
+@keyframes gradientMove {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* Başlık Animasyonu */
+.weather-title {
+    font-family: 'Montserrat', sans-serif;
+    position: relative;
+    animation: floatAnimation 3s ease-in-out infinite;
+    background: linear-gradient(45deg, #fff, #FFD93D);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Hava Durumu Kartı */
+.weather-card {
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+    animation: glowPulse 3s infinite;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.weather-card:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+}
+
+/* Konum İsmi */
+.location-name {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    letter-spacing: 1px;
+    background: linear-gradient(120deg, #ffffff, #ffd93d);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Sıcaklık Göstergesi */
+.temp-display {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 3.5rem !important;
+    font-weight: 700;
+    background: linear-gradient(45deg, #FFD93D, #FF6B6B);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.15);
+    transition: all 0.3s ease;
+}
+
+.temp-display:hover {
+    transform: scale(1.1);
+}
+
+/* Hava Durumu Açıklaması */
+.weather-description {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    color: rgba(255, 255, 255, 0.9);
+    position: relative;
+    padding: 8px 20px;
+    border-radius: 25px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(5px);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    margin-top: 15px;
+}
+
+/* Input Alanı Özelleştirmeleri */
+input {
+    font-family: 'Poppins', sans-serif !important;
+    transition: all 0.3s ease !important;
+}
+
+input:focus {
+    transform: scale(1.02);
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.3) !important;
+}
+
+input::placeholder {
+    color: rgba(255, 255, 255, 0.7);
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Buton Özelleştirmeleri */
+button {
+    font-family: 'Montserrat', sans-serif !important;
+    font-weight: 600 !important;
+    letter-spacing: 0.5px !important;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease !important;
+}
+
+button:hover {
+    transform: translateY(-2px) scale(1.02);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2) !important;
+}
+
+button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(120deg,
+            transparent,
+            rgba(255, 255, 255, 0.2),
+            transparent);
+    transition: 0.5s;
+}
+
+button:hover::before {
+    left: 100%;
+}
+
+/* Özel Scrollbar */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(45deg, #FF6B6B, #FF8E53);
+    border-radius: 10px;
+    border: 2px solid rgba(255, 255, 255, 0.1);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(45deg, #FF8E53, #FF6B6B);
+}
+
+/* Responsive Tasarım */
+@media (max-width: 768px) {
+    .weather-title {
+        font-size: 2rem !important;
+    }
+
+    .temp-display {
+        font-size: 2.5rem !important;
+    }
+
+    .weather-description {
+        font-size: 1rem !important;
+    }
+}
+
+/* Hava Durumu Arkaplan Renkleri ve Metin Stilleri */
+.weather-clear {
+    background: linear-gradient(135deg, #FF8C1A, #FFB75E) !important;
+}
+
+.weather-clear .weather-description {
+    background: rgba(255, 255, 255, 0.2);
+    color: #fff;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.weather-clouds {
+    background: linear-gradient(135deg, #4B6CB7, #182848) !important;
+}
+
+.weather-clouds .weather-description {
+    background: rgba(255, 255, 255, 0.15);
+    color: #E0E0E0;
+}
+
+.weather-rain {
+    background: linear-gradient(135deg, #373B44, #4286f4) !important;
+}
+
+.weather-rain .weather-description {
+    background: rgba(255, 255, 255, 0.15);
+    color: #E0E0E0;
+}
+
+.weather-drizzle {
+    background: linear-gradient(135deg, #3a7bd5, #00d2ff) !important;
+}
+
+.weather-drizzle .weather-description {
+    background: rgba(0, 0, 0, 0.2);
+    color: #fff;
+}
+
+.weather-thunderstorm {
+    background: linear-gradient(135deg, #283E51, #0A2342) !important;
+}
+
+.weather-thunderstorm .weather-description {
+    background: rgba(255, 255, 255, 0.15);
+    color: #E0E0E0;
+}
+
+.weather-snow {
+    background: linear-gradient(135deg, #E6DADA, #274046) !important;
+}
+
+.weather-snow .temp-display {
+    background: linear-gradient(45deg, #274046, #444444);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.weather-snow .weather-description {
+    background: rgba(39, 64, 70, 0.3);
+    color: #274046;
+    font-weight: 600;
+}
+
+.weather-mist,
+.weather-fog,
+.weather-haze {
+    background: linear-gradient(135deg, #606c88, #3f4c6b) !important;
+}
+
+.weather-mist .weather-description,
+.weather-fog .weather-description,
+.weather-haze .weather-description {
+    background: rgba(255, 255, 255, 0.15);
+    color: #E0E0E0;
+}
+
+/* Animasyon ekleyelim */
+@keyframes gradientTransition {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* Tüm hava durumu class'larına animasyon ekleyelim */
+[class^="weather-"] {
+    background-size: 200% 200% !important;
+    animation: gradientTransition 10s ease infinite;
+    transition: background 1s ease;
+}
+
+/* Kar durumu dışındaki tüm durumlarda title gradient'i */
+[class^="weather-"]:not(.weather-snow) .weather-title {
+    background: linear-gradient(45deg, #fff, #ffe259);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: none;
+}
+
+/* Kar durumunda title gradient'i */
+.weather-snow .weather-title {
+    background: linear-gradient(45deg, #274046, #444444);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: none;
+}
+
+/* Hava durumu ikonları için container */
+.weather-icon-container {
+    position: relative;
+    width: 100%;
+    height: 100px;
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.weather-icon {
+    width: 200px;
+    height: 100px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    animation: floatAnimation 3s ease-in-out infinite;
+}
+
+/* Hava durumu ikonları */
+.weather-clear .weather-icon {
+    background-image: url('https://cdn-icons-png.flaticon.com/512/3222/3222800.png');
+}
+
+.weather-clouds .weather-icon {
+    background-image: url('https://cdn-icons-png.flaticon.com/512/414/414927.png');
+}
+
+.weather-rain .weather-icon {
+    background-image: url('https://cdn-icons-png.flaticon.com/512/3351/3351979.png');
+}
+
+.weather-drizzle .weather-icon {
+    background-image: url('https://cdn-icons-png.flaticon.com/512/3313/3313888.png');
+}
+
+.weather-thunderstorm .weather-icon {
+    background-image: url('https://cdn-icons-png.flaticon.com/512/1959/1959338.png');
+}
+
+.weather-snow .weather-icon {
+    background-image: url('https://cdn-icons-png.flaticon.com/512/642/642000.png');
+}
+
+.weather-mist .weather-icon,
+.weather-fog .weather-icon,
+.weather-haze .weather-icon {
+    background-image: url('https://cdn-icons-png.flaticon.com/512/4005/4005901.png');
+}
+
+/* İkon hover efekti */
+.weather-icon:hover {
+    transform: scale(1.1);
+    transition: transform 0.3s ease;
+}
